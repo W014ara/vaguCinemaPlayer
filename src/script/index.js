@@ -1,3 +1,4 @@
+const app = document.querySelector(".vagu__player");
 const videoWrapper = document.querySelector(".playerWrapper");
 const video = document.querySelector("#originalVideo");
 const rangeInp = document.querySelector("#volumeTargetSettings");
@@ -23,6 +24,11 @@ function playVideo(){
     }
 }
 
+document.addEventListener("keydown", (e)=>{
+    if(e.keyCode === 32){
+        playVideo();
+    }
+})
 
 mainToggle.addEventListener("click", ()=>{
     playVideo();
@@ -169,4 +175,23 @@ rangeInp.addEventListener("input", (e)=>{
     rangeInp.style.background = `conic-gradient(from 90deg at ${newWidth + 10}% 80%, rgba(255, 255, 255, 0) 0deg, #E4BF01 210.21deg, rgba(255, 255, 255, 0) 360deg), #545454`;
     video.volume = targetValue / 100;
 })
+
+//FullScreen functions
+const fullscreenVideo = document.querySelector("#fullscreenVideo");
+fullscreenVideo.addEventListener("click", (e)=>{
+    toggleFullScreen();
+})
+function toggleFullScreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (document.webkitFullscreenElement) {
+      // Need this to support Safari
+      document.webkitExitFullscreen();
+    } else if (app.webkitRequestFullscreen) {
+      // Need this to support Safari
+      app.webkitRequestFullscreen();
+    } else {
+        app.requestFullscreen();
+    }
+}
 

@@ -1,4 +1,5 @@
 .vagu__player {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6,6 +7,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 2147483649;
 }
 
 .playerWrapper {
@@ -19,6 +21,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+  z-index: 2147483649;
+}
+
+.playerWrapper:hover {
   background: rgba(196, 196, 196, 0.1);
 }
 
@@ -56,6 +65,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   background: #1B1B1B;
+  z-index: 2147483649;
 }
 
 .playerControl .timeLine {
@@ -97,6 +107,7 @@
           justify-content: space-between;
   padding: 0px 20px 10px 20px;
   margin-top: 15px;
+  z-index: 2147483649;
 }
 
 .playerControl .mainControls .leftControls {
@@ -182,6 +193,7 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 30px;
+  z-index: 2147483649;
 }
 
 .playerControl .mainControls .rightControls #settingsVideo {
@@ -260,6 +272,7 @@
   background: #545454;
   -webkit-transition: .2s;
   transition: .2s;
+  z-index: 2147483649;
 }
 
 .playerControl .settings .quality-option {
@@ -283,5 +296,19 @@
 
 .playerControl .settings:hover {
   color: black;
+}
+
+video:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+
+/*hide full screen controls*/
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
 }
 /*# sourceMappingURL=index.css.map */

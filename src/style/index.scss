@@ -34,8 +34,10 @@ $timeLimitFontSize: 15px;
 
 
 .vagu__player{
+    position: relative;
     display:flex;
     flex-direction: column;
+    z-index: 2147483649;
 }
 
 
@@ -44,7 +46,11 @@ $timeLimitFontSize: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:$wrapperColor;
+    background:none;
+    transition: 1s;
+    &:hover{
+        background:$wrapperColor;
+    }
     #mainToggle{
         width:$mainToggleWidth;
         height:$mainToggleHeight;
@@ -64,6 +70,7 @@ $timeLimitFontSize: 15px;
             background-size: contain;
         }
     }
+    z-index: 2147483649;
 }
 
 .playerControl{
@@ -150,7 +157,9 @@ $timeLimitFontSize: 15px;
             #fullscreenVideo{
                 @include controlToggleImages($controlFullScreenToggleSmall);
             }
+            z-index: 2147483649;
         }
+        z-index: 2147483649;
     }
     .settings{
         display: none;
@@ -185,6 +194,7 @@ $timeLimitFontSize: 15px;
             align-items: center;
             background:$controlVolumeToggleBackground;
             transition:.2s;
+            z-index: 2147483649;
             &-option{
                 font-family: $timeLimitFontName;
                 font-size: 20px;
@@ -206,4 +216,17 @@ $timeLimitFontSize: 15px;
             color:black;
         }
     }
+    z-index: 2147483649;
+}
+
+video:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+}
+  /*hide full screen controls*/
+video::-webkit-media-controls {
+    display:none !important;
+}
+  video::-webkit-media-controls-enclosure {
+    display:none !important;
 }
