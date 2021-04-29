@@ -24,6 +24,7 @@ function playVideo(){
     }
 }
 
+//if pressed space key
 document.addEventListener("keydown", (e)=>{
     if(e.keyCode === 32){
         playVideo();
@@ -118,6 +119,22 @@ qualityGear.addEventListener("click", (e)=>{
     openCloseSettings();
 });
 
+qualityChange.addEventListener("change", (e)=>{
+    video.pause();
+    let curtime = video.currentTime;
+    switch(qualityChange.value){
+        case "1080p":
+            video.childNodes[1].setAttribute("src", "./src/video/test1.mp4");
+            break;
+        default:
+            video.childNodes[1].setAttribute("src", "./src/video/test2.mp4");
+            break;
+    }
+    video.load();
+    video.currentTime = curtime;
+    video.play();
+})
+
 function openCloseSettings(){
     if(!settingsToggle){
         settingBlock.style.display = "block";
@@ -144,7 +161,7 @@ document.addEventListener("click", (e)=>{
 })
 
 
-//
+//Set video block width
 window.addEventListener('resize', function(event) {
     videoWrapper.style.width = `${video.clientWidth}px`;
     videoWrapper.style.height = `${video.clientHeight}px`;
