@@ -212,3 +212,14 @@ function toggleFullScreen() {
     }
 }
 
+
+const controlPanel = document.querySelector(".playerControl");
+let timeout;
+document.addEventListener('mousemove', function(e) {
+    controlPanel.classList.add("active");
+    clearTimeout(timeout);
+    timeout = setTimeout(function() {
+        controlPanel.classList.remove("active");
+    }, 5000)
+});
+

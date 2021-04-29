@@ -69,9 +69,14 @@ $timeLimitFontSize: 15px;
 
 .playerControl{
     position: relative;
-    display:flex;
+    display:none;
     flex-direction: column;
     background:$controlPanelBackground;
+    transition: .2s;
+    &.active{
+        display:flex;
+        transition: .2s;
+    }
     .timeLine{
         height:5px;
         background:$controlTimeLineStandartColor;
