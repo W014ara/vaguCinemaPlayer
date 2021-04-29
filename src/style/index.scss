@@ -1,0 +1,209 @@
+$wrapperColor: rgba(196, 196, 196, 0.1);
+
+$mainToggleWidth: 10%;
+$mainToggleHeight: 15%;
+$mainToggleImgPlay: "../img/iconPlay.svg";
+$mainToggleImgPause: "../img/iconPause.svg";
+
+$controlPanelBackground: #1B1B1B;
+$controlTimeLineStandartColor: #4A4A4A;
+$controlTimeLineFillColor: #E4BF01;
+
+$controlPlayToggleSmall: "../img/Controls/playToggleSmall.svg";
+$controlPauseToggleSmall: "../img/Controls/pauseToggleSmall.svg";
+$controlVolumeToggleSmall: "../img/Controls/volumeToggleSmall.svg";
+$controlSettingsToggleSmall: "../img/Controls/settingsToggleSmall.svg";
+$controlFullScreenToggleSmall: "../img/Controls/fullScreenToggleSmall.svg";
+
+$controlVolumeToggleBackground: #545454;
+
+$timeLimitFontName: Consolas;
+$timeLimitFontSize: 15px;
+
+
+@mixin controlToggleImages($imgPath) {
+    width:20px;
+    height:20px;
+    background:url($imgPath) no-repeat;
+    background-size: contain;
+    transition: .2s;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+.vagu__player{
+    display:flex;
+    flex-direction: column;
+}
+
+
+.playerWrapper{
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:$wrapperColor;
+    #mainToggle{
+        width:$mainToggleWidth;
+        height:$mainToggleHeight;
+        transition: .2s;
+        opacity: 0;
+        z-index: 99;
+        &:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        &.playMainToggle{
+            background:url($mainToggleImgPlay) no-repeat;
+            background-size: contain;
+        }
+        &.pauseMainToggle{
+            background:url($mainToggleImgPause) no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+.playerControl{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    background:$controlPanelBackground;
+    .timeLine{
+        height:5px;
+        background:$controlTimeLineStandartColor;
+        &:hover{
+            cursor: pointer;
+        }
+        //Progress time bar
+        &__fill{
+            background:$controlTimeLineFillColor;
+            width:0%;
+            height:inherit;
+        }
+        #targetTime{
+            display:none;
+            bottom:50px;
+            position:absolute;
+            color:white;
+            font-family: $timeLimitFontName;
+            font-size: $timeLimitFontSize;
+        }
+    }
+    .mainControls{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 0px 20px 10px 20px;
+        margin-top: 15px;
+        .leftControls{
+            display:flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            #playVideo{
+                @include controlToggleImages($controlPlayToggleSmall);
+                &.pauseVideo{
+                    background:url($controlPauseToggleSmall) no-repeat;
+                    background-size: contain;
+                }
+            }
+            #volumeVideo{
+                @include controlToggleImages($controlVolumeToggleSmall);
+            }
+            #timeLimit{
+                margin-left: 2px;
+                font-family: $timeLimitFontName;
+                font-size: $timeLimitFontSize;
+                color: $controlTimeLineFillColor;
+            }
+
+            input[type='range'] {
+                -webkit-appearance: none;
+                width: 20%;
+                height: 8px;
+                background: conic-gradient(from 90deg at 100% 80%, rgba(255, 255, 255, 0) 0deg, #E4BF01 210.21deg, rgba(255, 255, 255, 0) 360deg), #545454;
+                border-radius:3px;
+                outline: none;
+                &::-webkit-slider-thumb{
+                    width: 15px;
+                    -webkit-appearance: none;
+                    height: 15px;
+                    cursor: ew-resize;
+                    background: $controlTimeLineFillColor;
+                    border-radius:30px;
+                }
+              }
+        }
+        .rightControls{
+            display:flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap:30px;
+            #settingsVideo{
+                @include controlToggleImages($controlSettingsToggleSmall);
+            }
+            #fullscreenVideo{
+                @include controlToggleImages($controlFullScreenToggleSmall);
+            }
+        }
+    }
+    .settings{
+        display: none;
+        position:absolute;
+        right: 0px;
+        bottom: 55px;
+        width:300px;
+        color:white;
+        transition: .2s;
+        &.off{
+            display:none;
+        }
+        select{
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            position: relative;
+            outline: none;
+            color:white;
+            &:hover{
+                color:black;
+                cursor: pointer;
+            }
+        }
+        .quality{
+            width:inherit;
+            height:30px;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            background:$controlVolumeToggleBackground;
+            transition:.2s;
+            &-option{
+                font-family: $timeLimitFontName;
+                font-size: 20px;
+                gap:15px;
+                height:25px;
+            }
+            #quality-change{
+                width:150px;
+                background:none;
+                outline:none;
+                border:none;
+            }
+            &:hover{
+                background:$controlTimeLineFillColor;
+                cursor: pointer;
+            }
+        }
+        &:hover{
+            color:black;
+        }
+    }
+}

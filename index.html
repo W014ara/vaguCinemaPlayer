@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./src/style/normalize.css">
+<link rel="stylesheet" href="./src/style/index.css">
+<body>
+    <div class="vagu__player">
+        <div class="playerWrapper">
+            <div id="mainToggle" class="playMainToggle"></div>
+        </div>
+        <video id="originalVideo">
+            <source src="./src/video/test1.mp4" type="video/mp4">
+        </video>
+        <div class="playerControl">
+            <div class="timeLine">
+                <div class="timeLine__fill"></div>
+                <span id="targetTime">35:35</span>
+            </div>
+            <div class="mainControls">
+                <div class="leftControls">
+                    <div id="playVideo"></div>
+                    <div id="volumeVideo"></div>
+                    <input type="range" name="volume" id="volumeTargetSettings" value="100" min="0" max="100" step="1">
+                    <span id="timeLimit">00:00/23:45</span>
+                </div>
+                <div class="rightControls">
+                    <div id="settingsVideo"></div>
+                    <div id="fullscreenVideo"></div>
+                </div>
+                <div class="settings">
+                    <div class="quality">
+                        <div class="quality-option">Качество</div>
+                        <select name="quality-change" id="quality-change" class="quality-option">
+                            <option value="1080"><div>1080p</div></option>
+                            <option value="720"><div>720p</div></option>
+                            <option value="480">480p</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="./src/script/index.js"></script>
+</body>
+</html>

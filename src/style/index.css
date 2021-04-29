@@ -1,0 +1,287 @@
+.vagu__player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.playerWrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(196, 196, 196, 0.1);
+}
+
+.playerWrapper #mainToggle {
+  width: 10%;
+  height: 15%;
+  -webkit-transition: .2s;
+  transition: .2s;
+  opacity: 0;
+  z-index: 99;
+}
+
+.playerWrapper #mainToggle:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.playerWrapper #mainToggle.playMainToggle {
+  background: url("../img/iconPlay.svg") no-repeat;
+  background-size: contain;
+}
+
+.playerWrapper #mainToggle.pauseMainToggle {
+  background: url("../img/iconPause.svg") no-repeat;
+  background-size: contain;
+}
+
+.playerControl {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #1B1B1B;
+}
+
+.playerControl .timeLine {
+  height: 5px;
+  background: #4A4A4A;
+}
+
+.playerControl .timeLine:hover {
+  cursor: pointer;
+}
+
+.playerControl .timeLine__fill {
+  background: #E4BF01;
+  width: 0%;
+  height: inherit;
+}
+
+.playerControl .timeLine #targetTime {
+  display: none;
+  bottom: 50px;
+  position: absolute;
+  color: white;
+  font-family: Consolas;
+  font-size: 15px;
+}
+
+.playerControl .mainControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 20px 10px 20px;
+  margin-top: 15px;
+}
+
+.playerControl .mainControls .leftControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.playerControl .mainControls .leftControls #playVideo {
+  width: 20px;
+  height: 20px;
+  background: url("../img/Controls/playToggleSmall.svg") no-repeat;
+  background-size: contain;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.playerControl .mainControls .leftControls #playVideo:hover {
+  cursor: pointer;
+}
+
+.playerControl .mainControls .leftControls #playVideo.pauseVideo {
+  background: url("../img/Controls/pauseToggleSmall.svg") no-repeat;
+  background-size: contain;
+}
+
+.playerControl .mainControls .leftControls #volumeVideo {
+  width: 20px;
+  height: 20px;
+  background: url("../img/Controls/volumeToggleSmall.svg") no-repeat;
+  background-size: contain;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.playerControl .mainControls .leftControls #volumeVideo:hover {
+  cursor: pointer;
+}
+
+.playerControl .mainControls .leftControls #timeLimit {
+  margin-left: 2px;
+  font-family: Consolas;
+  font-size: 15px;
+  color: #E4BF01;
+}
+
+.playerControl .mainControls .leftControls input[type='range'] {
+  -webkit-appearance: none;
+  width: 20%;
+  height: 8px;
+  background: conic-gradient(from 90deg at 100% 80%, rgba(255, 255, 255, 0) 0deg, #E4BF01 210.21deg, rgba(255, 255, 255, 0) 360deg), #545454;
+  border-radius: 3px;
+  outline: none;
+}
+
+.playerControl .mainControls .leftControls input[type='range']::-webkit-slider-thumb {
+  width: 15px;
+  -webkit-appearance: none;
+  height: 15px;
+  cursor: ew-resize;
+  background: #E4BF01;
+  border-radius: 30px;
+}
+
+.playerControl .mainControls .rightControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+}
+
+.playerControl .mainControls .rightControls #settingsVideo {
+  width: 20px;
+  height: 20px;
+  background: url("../img/Controls/settingsToggleSmall.svg") no-repeat;
+  background-size: contain;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.playerControl .mainControls .rightControls #settingsVideo:hover {
+  cursor: pointer;
+}
+
+.playerControl .mainControls .rightControls #fullscreenVideo {
+  width: 20px;
+  height: 20px;
+  background: url("../img/Controls/fullScreenToggleSmall.svg") no-repeat;
+  background-size: contain;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.playerControl .mainControls .rightControls #fullscreenVideo:hover {
+  cursor: pointer;
+}
+
+.playerControl .settings {
+  display: none;
+  position: absolute;
+  right: 0px;
+  bottom: 55px;
+  width: 300px;
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.playerControl .settings.off {
+  display: none;
+}
+
+.playerControl .settings select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  position: relative;
+  outline: none;
+  color: white;
+}
+
+.playerControl .settings select:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.playerControl .settings .quality {
+  width: inherit;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #545454;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.playerControl .settings .quality-option {
+  font-family: Consolas;
+  font-size: 20px;
+  gap: 15px;
+  height: 25px;
+}
+
+.playerControl .settings .quality #quality-change {
+  width: 150px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.playerControl .settings .quality:hover {
+  background: #E4BF01;
+  cursor: pointer;
+}
+
+.playerControl .settings:hover {
+  color: black;
+}
+/*# sourceMappingURL=index.css.map */
