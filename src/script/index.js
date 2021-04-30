@@ -2,6 +2,19 @@ const app = document.querySelector(".vagu__player");
 const videoWrapper = document.querySelector(".playerWrapper");
 const video = document.querySelector("#originalVideo");
 const rangeInp = document.querySelector("#volumeTargetSettings");
+const qualityChange = document.querySelector("#quality-change");
+
+import qualityOptions from "./config.js";
+
+for(let key in qualityOptions){
+    qualityChange.innerHTML +=  `<option value="${key}">${qualityOptions[key][0]}</option>`
+}
+
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+
 
 //Play/Pause
 const mainToggle = document.querySelector("#mainToggle");
@@ -112,8 +125,11 @@ timeLine.addEventListener("click", (e)=>{
 //Video change Quality
 const qualityGear = document.querySelector("#settingsVideo");
 const settingBlock = document.querySelector(".settings");
-const qualityChange = document.querySelector("#quality-change");
 let settingsToggle = false;
+
+if(isEmpty(qualityOptions)){
+    qualityGear.remove();
+}
 
 qualityGear.addEventListener("click", (e)=>{
     openCloseSettings();
@@ -122,17 +138,16 @@ qualityGear.addEventListener("click", (e)=>{
 qualityChange.addEventListener("change", (e)=>{
     video.pause();
     let curtime = video.currentTime;
-    switch(qualityChange.value){
-        case "1080p":
-            video.childNodes[1].setAttribute("src", "./src/video/test1.mp4");
+    for(let key in qualityOptions){
+        if(qualityChange.value === key){
+            video.childNodes[3].setAttribute("src", `${qualityOptions[key][1]}`);
             break;
-        default:
-            video.childNodes[1].setAttribute("src", "./src/video/test2.mp4");
-            break;
+        }
     }
     video.load();
     video.currentTime = curtime;
     video.play();
+    playVideo();
 })
 
 function openCloseSettings(){

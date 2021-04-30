@@ -7,6 +7,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background: #1B1B1B;
 }
 
 .playerWrapper {
@@ -50,22 +51,23 @@
 
 .playerControl {
   position: relative;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   background: #1B1B1B;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
 }
 
 .playerControl.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transition: .2s;
-  transition: .2s;
+  opacity: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .playerControl .timeLine {
