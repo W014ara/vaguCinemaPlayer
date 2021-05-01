@@ -111,6 +111,12 @@
   margin-top: 15px;
 }
 
+@media (min-width: 0px) and (max-width: 424px) {
+  .playerControl .mainControls {
+    padding: 0px 5px 10px 0px;
+  }
+}
+
 .playerControl .mainControls .leftControls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -196,6 +202,12 @@
   gap: 30px;
 }
 
+@media (min-width: 0px) and (max-width: 424px) {
+  .playerControl .mainControls .rightControls {
+    gap: 15px;
+  }
+}
+
 .playerControl .mainControls .rightControls #settingsVideo {
   width: 20px;
   height: 20px;
@@ -227,10 +239,16 @@
   position: absolute;
   right: 0px;
   bottom: 55px;
-  width: 300px;
+  width: 500px;
   color: white;
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings {
+    width: 250px;
+  }
 }
 
 .playerControl .settings.off {
@@ -244,16 +262,12 @@
   position: relative;
   outline: none;
   color: white;
-}
-
-.playerControl .settings select:hover {
-  color: black;
   cursor: pointer;
 }
 
 .playerControl .settings .quality {
   width: inherit;
-  height: 30px;
+  height: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -263,9 +277,9 @@
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -274,26 +288,118 @@
   transition: .2s;
 }
 
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings .quality {
+    height: 20px;
+  }
+}
+
 .playerControl .settings .quality-option {
+  width: 150px;
+  text-align: center;
   font-family: Consolas;
   font-size: 20px;
-  gap: 15px;
   height: 25px;
 }
 
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings .quality-option {
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    font-size: 10px;
+  }
+}
+
 .playerControl .settings .quality #quality-change {
-  width: 150px;
+  width: 100px;
   background: none;
   outline: none;
   border: none;
 }
 
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings .quality #quality-change {
+    width: 30px;
+  }
+}
+
 .playerControl .settings .quality:hover {
   background: #E4BF01;
   cursor: pointer;
+  color: black;
 }
 
-.playerControl .settings:hover {
+.playerControl .settings .quality:hover select {
+  color: black;
+}
+
+.playerControl .settings .videoSpeed {
+  width: inherit;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #545454;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings .videoSpeed {
+    height: 20px;
+  }
+}
+
+.playerControl .settings .videoSpeed-option {
+  margin-left: 30px;
+  text-align: center;
+  font-family: Consolas;
+  font-size: 20px;
+  height: 25px;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings .videoSpeed-option {
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    font-size: 10px;
+  }
+}
+
+.playerControl .settings .videoSpeed #videoSpeed-change {
+  width: 100px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .playerControl .settings .videoSpeed #videoSpeed-change {
+    width: 30px;
+  }
+}
+
+.playerControl .settings .videoSpeed:hover {
+  background: #E4BF01;
+  cursor: pointer;
+  color: black;
+}
+
+.playerControl .settings .videoSpeed:hover select {
   color: black;
 }
 /*# sourceMappingURL=index.css.map */

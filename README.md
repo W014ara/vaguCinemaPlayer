@@ -1,17 +1,16 @@
 # VAGU Cinema player :cinema:
-## ver. build 3004.21
+## ver. build 0105.21
 ```
 VAGU Cinema player provides a simple responsive video player
 for desktop and mobile devices that can be easily integrated into your solution.
 ```
 ## Release notes:
-1. Providing playback of any video;
-2. Convenient embedding through one tag into any solution (framework, native application);
-3. Mobile responsiveness;
-4. Ability to change video quality.
+1. Fixed a number of visual bugs;
+2. Melted adaptive for extra small screens (0-425px);
+3. Added option to change playback speed.
 
 ## Missing functionality:
-1. The main functionality in build 3004.21 focuses on desktop solutions, therefore some mobile familiar functions are missing;
+1. The main functionality in build 0105.21 focuses on desktop solutions, therefore some mobile familiar functions are missing;
 2. There is no function to change the speed of video playback;
 3. There is no possibility to embed subtitles;
 4. There is no possibility to rewind video by double-clicking on screen areas on mobile devices;
@@ -41,3 +40,12 @@ const qualityOptions = {
 ```
 ## Example
 <img src="public/videoeg.PNG"> <img src="public/videoeg-1.PNG">
+
+
+
+# History notes
+## Release notes in 3004.21:
+1. Providing playback of any video;
+2. Convenient embedding through one tag into any solution (framework, native application);
+3. Mobile responsiveness;
+4. Ability to change video quality.

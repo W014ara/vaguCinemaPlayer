@@ -3,6 +3,8 @@ const videoWrapper = document.querySelector(".playerWrapper");
 const video = document.querySelector("#originalVideo");
 const rangeInp = document.querySelector("#volumeTargetSettings");
 const qualityChange = document.querySelector("#quality-change");
+const videoSpeedChange = document.querySelector("#videoSpeed-change");
+const qualityBlock = document.querySelector(".quality");
 
 import qualityOptions from "./config.js";
 
@@ -127,8 +129,9 @@ const qualityGear = document.querySelector("#settingsVideo");
 const settingBlock = document.querySelector(".settings");
 let settingsToggle = false;
 
+//Remove quality option's block if it's empty
 if(isEmpty(qualityOptions)){
-    qualityGear.remove();
+    qualityBlock.remove();
 }
 
 qualityGear.addEventListener("click", (e)=>{
@@ -161,19 +164,24 @@ function openCloseSettings(){
 }
 
 document.addEventListener("click", (e)=>{
-    const quality = document.querySelector(".quality");
-    for(let index = 0; index < quality.childNodes.length; ++index){
-        if(quality.childNodes[index].className !== undefined){
-            if(e.target.className === quality.childNodes[index].className || e.target === qualityGear){
-                continue;
-            }else{
-                settingBlock.style.display = "none";
-                settingsToggle = false;
-                break;
-            }
+    let classes = [qualityGear.className];
+    Array.from(settingBlock.children).forEach(e => {
+        classes.push(e.classList.toString());
+        classes.push(e.classList.toString() + "-option");
+    });
+    if(e.target.className !== ""){
+        if(!classes.includes(e.target.className)){
+            settingBlock.style.display = "none";
+            settingsToggle = false;
         }
     }
 })
+
+//Change video speed functions
+videoSpeedChange.addEventListener("change", (e)=>{
+    video.playbackRate = Number(videoSpeedChange.value);
+})
+
 
 
 //Set video block width
@@ -228,6 +236,7 @@ function toggleFullScreen() {
 }
 
 
+//Fade out/in settings
 const controlPanel = document.querySelector(".playerControl");
 let timeout;
 document.addEventListener('mousemove', function(e) {

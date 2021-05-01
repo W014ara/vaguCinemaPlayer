@@ -106,6 +106,9 @@ $timeLimitFontSize: 15px;
         flex-wrap: nowrap;
         justify-content: space-between;
         padding: 0px 20px 10px 20px;
+        @media (min-width:0px) and (max-width:424px){
+            padding: 0px 5px 10px 0px;
+        }
         margin-top: 15px;
         .leftControls{
             display:flex;
@@ -152,6 +155,9 @@ $timeLimitFontSize: 15px;
             justify-content: space-between;
             align-items: center;
             gap:30px;
+            @media (min-width:0px) and (max-width:424px){
+                gap:15px;
+            }
             #settingsVideo{
                 @include controlToggleImages($controlSettingsToggleSmall);
             }
@@ -165,9 +171,12 @@ $timeLimitFontSize: 15px;
         position:absolute;
         right: 0px;
         bottom: 55px;
-        width:300px;
+        width:500px;
         color:white;
         transition: .2s;
+        @media (min-width:0px) and (max-width:767px){
+            width:250px;
+        }
         &.off{
             display:none;
         }
@@ -178,40 +187,96 @@ $timeLimitFontSize: 15px;
             position: relative;
             outline: none;
             color:white;
-            &:hover{
-                color:black;
-                cursor: pointer;
-            }
+            cursor: pointer;
         }
         .quality{
             width:inherit;
-            height:30px;
+            height:45px;
             display:flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
             background:$controlVolumeToggleBackground;
             transition:.2s;
+            @media (min-width:0px) and (max-width:767px){
+                height:20px;
+            }
             &-option{
+                width:150px;
+                text-align: center;
                 font-family: $timeLimitFontName;
                 font-size: 20px;
-                gap:15px;
                 height:25px;
+                @media (min-width:0px) and (max-width:767px){
+                    width:auto;
+                    height:auto;
+                    margin-left: 10px;
+                    font-size: 10px;
+                }
             }
             #quality-change{
-                width:150px;
+                width:100px;
                 background:none;
                 outline:none;
                 border:none;
+                @media (min-width:0px) and (max-width:767px){
+                    width:30px;
+                }
             }
             &:hover{
                 background:$controlTimeLineFillColor;
                 cursor: pointer;
+                color:black;
+                select{
+                    color:black;
+                }
             }
         }
-        &:hover{
-            color:black;
+
+        .videoSpeed{
+            width:inherit;
+            height:45px;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background:$controlVolumeToggleBackground;
+            transition:.2s;
+            @media (min-width:0px) and (max-width:767px){
+                height:20px;
+            }
+            &-option{
+                margin-left: 30px;
+                text-align: center;
+                font-family: $timeLimitFontName;
+                font-size: 20px;
+                height:25px;
+                @media (min-width:0px) and (max-width:767px){
+                    width:auto;
+                    height:auto;
+                    margin-left: 10px;
+                    font-size: 10px;
+                }
+            }
+            #videoSpeed-change{
+                width:100px;
+                background:none;
+                outline:none;
+                border:none;
+                @media (min-width:0px) and (max-width:767px){
+                    width:30px;
+                }
+            }
+            &:hover{
+                background:$controlTimeLineFillColor;
+                cursor: pointer;
+                color:black;
+                select{
+                    color:black;
+                }
+            }
         }
     }
 }

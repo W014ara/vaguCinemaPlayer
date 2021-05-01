@@ -31,10 +31,20 @@
                     <span id="timeLimit">00:00/23:45</span>
                 </div>
                 <div class="rightControls">
-                    <div id="settingsVideo"></div>
-                    <div id="fullscreenVideo"></div>
+                    <div id="settingsVideo" class="settingsVideo"></div>
+                    <div id="fullscreenVideo" class="fullscreenVideo"></div>
                 </div>
                 <div class="settings">
+                    <div class="videoSpeed">
+                        <div class="videoSpeed-option">Скорость воспроизведения</div>
+                        <select name="videoSpeed-change" id="videoSpeed-change" class="videoSpeed-option">
+                            <option value="0.25">0.25x</option>
+                            <option value="0.5">0.5x</option>
+                            <option value="1.0" selected>1.0x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2.0">2.0x</option>
+                        </select>
+                    </div>
                     <div class="quality">
                         <div class="quality-option">Качество</div>
                         <select name="quality-change" id="quality-change" class="quality-option">
